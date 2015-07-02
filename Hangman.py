@@ -62,7 +62,8 @@ def hangman(secretWord):
         print "-----------"
         print "You have",n_guess,"guesses left"
         print "Available Letters:", getAvailableLetters(lettersGuessed)
-        newletter = [raw_input("Please guess a letter:")] 
+        letter = [raw_input("Please guess a letter:")] 
+        newletter = [x.lower() for x in letter]
         
         if alreadyguessed(lettersGuessed,newletter): 
             lettersGuessed = lettersGuessed + newletter
