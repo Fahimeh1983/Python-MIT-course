@@ -57,9 +57,9 @@ def hangman(secretWord):
     n_guess = 8
     print "Welcome to the game, Hangman!"
     print "I am thinking of a word that is", len(secretWord),"letters long."
-    print "-------------"
 
     while 0 < n_guess <= 8 :
+        print "-----------"
         print "You have",n_guess,"guesses left"
         print "Available Letters:", getAvailableLetters(lettersGuessed)
         newletter = [raw_input("Please guess a letter:")] 
@@ -78,14 +78,10 @@ def hangman(secretWord):
             lettersGuessed = lettersGuessed + newletter
             print "Oops! That letter is not in my word:", getGuessedWord(secretWord, lettersGuessed)
             n_guess -= 1
-    if isWordGuessed (secretWord,correctGuessed) == True :
-        print "-----------"
-        return "Congratulations, you won!"     
-    else:
-        print "-----------"
-        return "Sorry, you ran out of guesses. The word was"
+    print "-----------"        
+    return "Sorry, you ran out of guesses. The word was %s." % secretWord 
         
               
 wordlist = loadWords()
 secretWord = chooseWord(wordlist)        
-print hangman(secretWord)
+print hangman("c")
